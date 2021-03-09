@@ -23,7 +23,7 @@
          </div>
          
          <!-- <a  class="btn p-font btn-border" href="http://<?php echo $is_subdomain_exists['subdomain']; ?><?php echo '.'.$_SERVER['SERVER_NAME'];?>/subadmin">Log in to backend</a> -->
-         <button onclick="loginpage('http://<?php echo $is_subdomain_exists['subdomain']; ?><?php echo '.'.$_SERVER['SERVER_NAME'];?>/landingpage');" class="btn p-font btn-border" >Click Here to Visit your Landing Page</button>
+         <button onclick="loginpage('http://<?php echo $is_subdomain_exists['subdomain']; ?><?php echo '.'.$_SERVER['SERVER_NAME'];?>/home');" class="btn p-font btn-border" >Click Here to Visit your Landing Page</button>
       </div>
    </body>
    <script type="text/javascript">

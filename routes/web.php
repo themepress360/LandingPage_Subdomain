@@ -12,20 +12,18 @@
 */
 
 Route::get('/', function () {
-    return view('index');
+  //  return view('index');
+	return Redirect::away('https://cwmtechnologies.com/register');
+
 });
 
 Route::get('/register','SubDomainController@index');
+
 Route::get('/success/{id}', 'SubDomainController@success');
 
 Route::post('/subdomaincreate','SubDomainController@subdomaincreate');
-Route::post('/subdomainuserlogin','SubDomainController@subdomainuserlogin');
 
-Route::get('/landingpage', 'SubDomainController@landingpage');
-Route::get('/successlogin/{id}', 'SubDomainController@successlogin');
+Route::get('/home', 'SubDomainController@landingpage');
 
-Route::get('/super-admin','SuperAdminController@index');
 
-Route::post('/login', 'SuperAdminController@SuperAdminLogin');
 
-Route::get('/all-subdomains', 'SuperAdminController@ShowAllSubDomains');

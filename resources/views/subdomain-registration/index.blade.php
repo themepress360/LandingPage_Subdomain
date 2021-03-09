@@ -15,7 +15,7 @@
          .input-subdomain{
          border: 1px solid #222;
          width: 235px;
-         margin-left: 84px;
+         
          }
       </style>
       <link rel="stylesheet" href="{{asset('style.css')}}" >

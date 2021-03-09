@@ -10,6 +10,7 @@ use App\SubDomains as SubDomains;
 use App\User as User;
 use Hash;
 use App\Traits\TableTrait as TableTrait;
+use Illuminate\Support\Facades\Route; 
 
 class SubDomainController extends CommonController
 {
@@ -111,8 +112,32 @@ class SubDomainController extends CommonController
 
     public function landingpage(Request $request)
     {
-        echo $this->view('subdomain.landing',[]);
+   $currentURL = url()->current();
+   $subdomain = $subdomain = join('.', explode('.', $_SERVER['HTTP_HOST'], -2));
+
+   // dd($subdomain);
+
+    // echo $this->view('subdomain.landing',[]);
+
+     $is_subdomain_exists = SubDomains::where(['subdomain' => $subdomain, "status" => '1' ,"deleted" => '0'])->first();
+        if($is_subdomain_exists)
+        {
+            $data['is_subdomain_exists'] = $is_subdomain_exists;
+            echo $this->view('subdomain.landing',$data);
+        }
+        else
+        {
+            print_r("Invalid Subdomain Id");
+            exit();
+        }
+
+
     }
+
+
+
+
+
 
     /**
      * @desc Add Sub Domain and create primary user
