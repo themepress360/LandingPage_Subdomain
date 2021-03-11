@@ -50,6 +50,24 @@
             <button type="button" class="btn p-font btn-border ajax svBtn" method="subdomaincreate" validate="1" callback="addSubDomainCallback" formid="addSubDomainForm" style="background-color:#2BAD44;color:#fff">Make Landing Page !</button>
          </div>
       </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       <script type="text/javascript">
          function addSubDomainCallback(response)
          {
