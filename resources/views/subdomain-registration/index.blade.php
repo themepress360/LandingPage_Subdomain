@@ -44,6 +44,7 @@
 
     .form__wrapper--padding {
         padding: 0px 87px;
+        width:600px;
     }
 
     .form__label--color {
