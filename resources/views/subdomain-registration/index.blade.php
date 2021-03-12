@@ -19,7 +19,7 @@
 
     }
 
-    /* form css start */
+    /*registration form css start */
     .form__register--left {
         background-image: url('admin/images/register-bg.jpg');
         background-size: cover;
@@ -44,7 +44,7 @@
 
     .form__wrapper--padding {
         padding: 0px 87px;
-        width:600px;
+        width: 600px;
     }
 
     .form__label--color {
@@ -70,7 +70,7 @@
         border: 1px solid red;
     }
 
-    .landing-btn {
+    .form__submit--btn {
         background-color: #17a2b8 !important;
         color: #fff;
         border: none;
@@ -80,6 +80,123 @@
         border-radius: 6px;
         font-weight: 500 !important;
     }
+      
+      /**registration form responsive css start**/
+
+    @media only screen and (max-width:768px) {
+        .form__register--left {
+            height: 745px;
+        }
+
+        .form__heading--color {
+            font-size: 38px;
+            margin-top: 0px;
+        }
+
+        .form__text--color {
+            font-size: 22px !important;
+        }
+
+        .form__wrapper--padding {
+            padding: 0px 0px;
+            width: auto;
+        }
+
+        .form__input--shadow {
+            width: 100%;
+            max-height: 38px;
+        }
+
+        .input-subdomain {
+            width: 235px !important;
+
+        }
+
+        .input__servername--height {
+            max-height: 38px !important;
+        }
+
+        .form__submit--btn {
+            width: 100%;
+            margin-left: 0px;
+            padding: 5px 0px;
+        }
+    }
+
+    @media only screen and (max-width:766px) {
+        .content {
+             padding: 20px !important;
+        }
+        .form__register--left {
+            height: 850px;
+        }
+
+        form#addSubDomainForm {
+            margin-top: -800px;
+        }
+
+        .input-subdomain {
+            width: 150px !important;
+        }
+
+        .form__submit--btn {
+            margin-bottom: 20px;
+        }
+    }
+
+    @media screen and (max-width: 1100px) and (min-width: 700px) {
+       
+        .form__wrapper--padding {
+            padding: 0px 0px;
+            width: auto;
+        }
+
+        .form__text--color {
+            font-size: 24px !important;
+        }
+
+        .form__heading--color {
+            font-size: 36px;
+        }
+
+        .form__input--shadow {
+            width: 100%;
+        }
+
+        .input-subdomain {
+            width: 235px !important;
+        }
+
+        .form__submit--btn {
+            width: 100%;
+            margin-left: 0px;
+        }
+    }
+
+    @media screen and (max-width: 1200px) and (min-width: 1110px) {
+
+        .form__submit--btn {
+            width: 82%;
+            margin-left: 84px;
+        }
+    }
+
+    @media only screen and (max-width:326px) {
+        .form__text--color {
+            font-size: 20px !important;
+        }
+
+        .form__heading--color {
+            font-size: 28px !important;
+        }
+    }
+    @media screen and (max-width: 1870px) and (min-width: 850px){
+        .form__register--left{
+            height:auto !important;
+        }
+    }
+
+      /**registration form responsive css End**/
 
     /* form css End */
     </style>
@@ -109,7 +226,8 @@
                     <form id="addSubDomainForm">
                         <div class="content">
                             <h1 class="form__heading--color mt-2 ">REGISTER NOW </h1>
-                            <p class="form__text--color p-font mt-4 mb-4">GET THE ULTIMATE PROFIT FROM HOME TODAY</p>
+                            <p class="form__text--color p-font mt-xl-4 mb-xl-4 mt-md-0 mb-md-2">GET THE ULTIMATE PROFIT
+                                FROM HOME TODAY</p>
                             <div class=" form__wrapper--padding">
                                 <label for="fname" class="form__label--color">First Name</label>
                                 <input class="m-b-20 form__input--shadow" type="text" name="first_name" />
@@ -135,8 +253,8 @@
 
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                             </div>
-                            <div class="text-center mt-4"> <button type="button"
-                                    class="landing-btn p-font btn-border ajax svBtn" method="subdomaincreate"
+                            <div class="text-center mt-xl-5 mt-md-3"> <button type="button"
+                                    class="form__submit--btn  p-font btn-border ajax svBtn" method="subdomaincreate"
                                     validate="1" callback="addSubDomainCallback" formid="addSubDomainForm"
                                     style="background-color:#2BAD44;color:#fff">Get Started</button></div>
 

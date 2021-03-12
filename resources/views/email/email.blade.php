@@ -18,16 +18,25 @@
 	<style>
 	@media only screen and (max-width:414px){
 		.success__subheading--size{
-			font-size:30px !important;
+			font-size: 28px !important;
+			line-height: 32
+			px !important;
 		}
 		.user__doamin--detail{
-			font-size:20px !important;
+			font-size:18px !important;
 		}
 		.landing__page--url{
 		 padding: 0.75rem 0.25rem !important; 
 		}
-		.email__Confirm--bt{
+		.email__Confirm--btn{
 		    width: 233px !important;
+		}
+		.email__iamge--round{
+		    width: 250px !important;
+		    height: 180px !important;
+		}
+		.table__start--mt{
+		 margin-top: -1px !important;
 		}
 
 	}
@@ -37,7 +46,7 @@
 <body style="margin:0;padding:0;background-color:#921a7b;">
 
 	<!--[if mso]><style type="text/css">body,table,td{font-family:Arial,Helvetica,sans-serif!important}a{text-decoration:none}</style><![endif]-->
-	<table cellpadding="0" cellspacing="0" border="0" style="width:100%;background-color:#921a7b; margin-top:25px;">
+	<table cellpadding="0" cellspacing="0" border="0" style="width:100%;background-color:#921a7b; margin-top:25px;" class="table__start--mt">
 		<tbody>
 			<tr>
 				<td style="font-size:0;"></td>
@@ -75,9 +84,9 @@
 															<tr>
 																<td align="center">
 																	<a target="_blank" >
-																		<img alt="" border="0" width="600"
+																		<img alt="" border="0" width="600" class="email__iamge--round"
 																			style="width:100%; max-width:350px; height:240px; display:block; outline:0; border:0; padding:0;"
-																			src="/admin/images/hero-img.png" />
+																			src="https://cwmtechnologies.com/admin/images/hero-img.png" />
 																	</a>
 																</td>
 															</tr>
@@ -115,13 +124,13 @@
 										<tbody>
 											<tr>
 												<td align="center" style="padding: 30px 0;">
-													<table border="0" cellspacing="0" cellpadding="0"
+													<table border="0" cellspacing="0" cellpadding="0" class="email__Confirm--btn"
 														style="width:300px;background:#17a2b8;border-radius: 6px;">
 														<tbody>
 															<tr>
 																<td align="center" height="45" style="height:45px; ">
       </div>
-																	<button  onclick="loginpage('http://<?php echo $is_subdomain_exists['subdomain']; ?><?php echo '.'.$_SERVER['SERVER_NAME'];?>/home');" class="btn p-font btn-border" style="display:inline-block; font-size:18px;font-family: Helvetica, sans-serif; font-size:18px; font-style:normal; color:#ffffff; font-weight:500;text-decoration:none;background:#17a2b8;border-radius: 6px;border:none;line-height:35px;outline:none; "
+																	<button   onclick="loginpage('http://<?php echo $is_subdomain_exists['subdomain']; ?><?php echo '.'.$_SERVER['SERVER_NAME'];?>/home');" class="btn p-font btn-border" style="display:inline-block; font-size:18px;font-family: Helvetica, sans-serif; font-size:18px; font-style:normal; color:#ffffff; font-weight:500;text-decoration:none;background:#17a2b8;border-radius: 6px;border:none;line-height:35px;outline:none; "
 																		target="_blank">Start Earning</button>
 																</td>
 															</tr>
