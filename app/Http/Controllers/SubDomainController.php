@@ -21,6 +21,18 @@ class SubDomainController extends CommonController
         return view('subdomain-registration.index');
     }
 
+    public function getsubdomaindata(Request $request)
+    {
+        $getsubdomains = SubDomains::getAll([],API_LIMIT,0);
+        $status = 201;
+        $response = array(
+            'status' => 'SUCCESS',
+            'data'   => $getsubdomains,
+            'ref'    => 'get_sub_domains',
+        );
+        return $this->response($response,$status);  
+    }
+
     /**
      * @desc Add Sub Domain and create primary user
      * @param  POST DATA (first_name,last_name,subdomain,email,phone_number,referral_link)
@@ -56,6 +68,12 @@ class SubDomainController extends CommonController
                
         		if($add_subdomain)
         		{
+                    /* Email Sent Start */
+                    $email_data = $add_subdomain;
+                    $email_template = view('email.email',$email_data)->render();
+                    SendGridMail($requestData['email'],'Tasti No Register',$email_template,"Content-Type: text/html; charset=ISO-8859-1\r\n"); 
+                    /* Email Sent End */
+                    
                     $status = 201;
                     $response = array(
                         'status' => 'SUCCESS',
@@ -112,14 +130,11 @@ class SubDomainController extends CommonController
 
     public function landingpage(Request $request)
     {
-   $currentURL = url()->current();
-   $subdomain = $subdomain = join('.', explode('.', $_SERVER['HTTP_HOST'], -2));
-
-   // dd($subdomain);
-
-    // echo $this->view('subdomain.landing',[]);
-
-     $is_subdomain_exists = SubDomains::where(['subdomain' => $subdomain, "status" => '1' ,"deleted" => '0'])->first();
+        $currentURL = url()->current();
+        $subdomain = $subdomain = join('.', explode('.', $_SERVER['HTTP_HOST'], -2));
+        // dd($subdomain);
+        // echo $this->view('subdomain.landing',[]);
+        $is_subdomain_exists = SubDomains::where(['subdomain' => $subdomain, "status" => '1' ,"deleted" => '0'])->first();
         if($is_subdomain_exists)
         {
             $data['is_subdomain_exists'] = $is_subdomain_exists;
@@ -130,8 +145,6 @@ class SubDomainController extends CommonController
             print_r("Invalid Subdomain Id");
             exit();
         }
-
-
     }
 
 

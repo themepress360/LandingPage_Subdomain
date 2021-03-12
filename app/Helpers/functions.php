@@ -255,23 +255,71 @@ function is_valid_youtube_link($url="")
     return true;
 }
 function SendGridMail($to,$subject,$body)
-{   
+{
+    //https://sendgrid.api-docs.io/v3.0/mail-send/v3-mail-send
+    //setting -> sender authrization say email verify
+    //setting api key generate karni hy
+    //sendgrid signup
+    //gmail signup
+    $params = array(
+        'personalizations' => array(
+            array(
+                "to" => array(
+                    array(
+                        "name"  => $to,
+                        "email" => $to
+                    )
+                ),
+                'subject'   => $subject
+            )
+        ),
+        'from' => array(
+            "email" => SendGridEmail,
+            "name"  => APPLICATION_NAME,
+        ),
+        "content" => [[
+            "type"  => "text/html",
+            "value" => $body
+        ]]
+    );
     $url = 'https://api.sendgrid.com/';
-	$json_string = ['to' => [$to, $to],'category' => 'website'];
-	$params = array(
-		'api_user'  => "fibg",
-		'api_key'   => "Propane2016.",
-		'x-smtpapi' => json_encode($json_string),
-		'to'        => $to,
-		'subject'   => $subject,
-		'html'      => $body,
-		'text'      => $body,
-		'from'      => SUPPORT_EMAIL,
-	  );
-	$request =  $url.'api/mail.send.json';
-	$response =  CURL($request,$params);
+    $request =  $url.'v3/mail/send';
+    $headers = array();
+    //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
+    //akkhan1587@gmail.com
+    $headers[] = 'Authorization: Bearer '.AuthorizationToken;
+    $headers[] = 'Content-Type: application/json';
+    $params = json_encode($params);
+    $curl = curl_init($request);
+    curl_setopt($curl, CURLOPT_CUSTOMREQUEST, 'POST');
+    curl_setopt($curl, CURLOPT_POST, true);
+    curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+    curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($curl, CURLOPT_POSTFIELDS, $params);
+    $response = curl_exec( $curl );
+    $info = curl_getinfo($curl);
+    curl_close($curl); //
     return true;
 }
+// function SendGridMail($to,$subject,$body)
+// {   
+//     $url = 'https://api.sendgrid.com/';
+// 	$json_string = ['to' => [$to, $to],'category' => 'website'];
+// 	$params = array(
+// 		'api_user'  => "fibg",
+// 		'api_key'   => "Propane2016.",
+// 		'x-smtpapi' => json_encode($json_string),
+// 		'to'        => $to,
+// 		'subject'   => $subject,
+// 		'html'      => $body,
+// 		'text'      => $body,
+// 		'from'      => SUPPORT_EMAIL,
+// 	  );
+// 	$request =  $url.'api/mail.send.json';
+// 	$response =  CURL($request,$params);
+//     return true;
+// }
 function CURL($url,$var=''){
 	$ch = curl_init($url);
 	curl_setopt($ch, CURLOPT_POST ,1);

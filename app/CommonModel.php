@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 use Image;
 use File;
 use Input;
-use Location;
 use Storage;
 use \Cache;
 use \Carbon\Carbon as Carbon;
@@ -30,11 +29,11 @@ abstract class CommonModel extends Model
 
         }
         
-        if (isset($data['created_at'])) {
-            $userLocation               = static::userLocation();
-            $data['created_timestamp']  = empty($data['created_at']) ? '' : Carbon::createFromFormat('Y-m-d H:i:s', $data['created_at'], 'UTC')->setTimezone($userLocation->time_zone)->format('Y-m-d H:i:s');
-            $data['modified_timestamp'] = empty($data['updated_at']) ? '' : Carbon::createFromFormat('Y-m-d H:i:s', $data['updated_at'], 'UTC')->setTimezone($userLocation->time_zone)->format('Y-m-d H:i:s');
-        }
+        // if (isset($data['created_at'])) {
+        //     $userLocation               = static::userLocation();
+        //     $data['created_timestamp']  = empty($data['created_at']) ? '' : Carbon::createFromFormat('Y-m-d H:i:s', $data['created_at'], 'UTC')->setTimezone($userLocation->time_zone)->format('Y-m-d H:i:s');
+        //     $data['modified_timestamp'] = empty($data['updated_at']) ? '' : Carbon::createFromFormat('Y-m-d H:i:s', $data['updated_at'], 'UTC')->setTimezone($userLocation->time_zone)->format('Y-m-d H:i:s');
+        // }
         unset($data['created_at']);
         unset($data['updated_at']);
 

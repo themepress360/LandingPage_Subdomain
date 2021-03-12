@@ -106,10 +106,10 @@
 															<tr>
 																<td align="center" class="user__doamin--detail"
 																	style="font-family:Helvetica,Arial, sans-serif;font-size:24px; line-height: 1.38;">
-																	Dear  <?php echo $is_subdomain_exists['first_name']; ?>,<br><br>
+																	Dear  <?php echo $first_name; ?>,<br><br>
 																	Your Landing Page is ready !!! <br><br>
 																	
-                                                   <div class="alert alert-primary landing__page--url" role="alert">	Landing page: <?php echo $is_subdomain_exists['subdomain']; ?><?php echo '.'.$_SERVER['SERVER_NAME'];?> </div>
+                                                   <div class="alert alert-primary landing__page--url" role="alert">	Landing page: <?php echo $subdomain; ?><?php echo '.'.$_SERVER['SERVER_NAME'];?> </div>
 
 
 																</td>
@@ -130,7 +130,7 @@
 															<tr>
 																<td align="center" height="45" style="height:45px; ">
       </div>
-																	<button   onclick="loginpage('http://<?php echo $is_subdomain_exists['subdomain']; ?><?php echo '.'.$_SERVER['SERVER_NAME'];?>/home');" class="btn p-font btn-border" style="display:inline-block; font-size:18px;font-family: Helvetica, sans-serif; font-size:18px; font-style:normal; color:#ffffff; font-weight:500;text-decoration:none;background:#17a2b8;border-radius: 6px;border:none;line-height:35px;outline:none; "
+																	<button   onclick="loginpage('http://<?php echo $subdomain; ?><?php echo '.'.$_SERVER['SERVER_NAME'];?>/home');" class="btn p-font btn-border" style="display:inline-block; font-size:18px;font-family: Helvetica, sans-serif; font-size:18px; font-style:normal; color:#ffffff; font-weight:500;text-decoration:none;background:#17a2b8;border-radius: 6px;border:none;line-height:35px;outline:none; "
 																		target="_blank">Start Earning</button>
 																</td>
 															</tr>
