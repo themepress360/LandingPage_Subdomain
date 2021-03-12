@@ -12,10 +12,10 @@
 */
 
 Route::get('/', function () {
-  //  return view('index');
+// return view('index');
 	return Redirect::away('/register');
 
-});
+ });
 
 Route::get('/register','SubDomainController@index');
 
