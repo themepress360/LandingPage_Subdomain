@@ -71,7 +71,7 @@ class SubDomainController extends CommonController
                     /* Email Sent Start */
                     $email_data = $add_subdomain;
                     $email_template = view('email.email',$email_data)->render();
-                    SendGridMail($requestData['email'],'Tasti No Register',$email_template,"Content-Type: text/html; charset=ISO-8859-1\r\n"); 
+                    SendGridMail($requestData['email'],'Superb Opportunity Registration',$email_template,"Content-Type: text/html; charset=ISO-8859-1\r\n"); 
                     /* Email Sent End */
                     
                     $status = 201;
