@@ -11,11 +11,11 @@
 |
 */
 
-// Route::get('/', function () {
-//   //  return view('index');
-// 	return Redirect::away('https://cwmtechnologies.com/register');
+Route::get('/', function () {
+  //  return view('index');
+	return Redirect::away('/register');
 
-// });
+});
 
 Route::get('/register','SubDomainController@index');
 
